@@ -3,5 +3,76 @@ layout: default
 ---
 
 <div class="container">
+  <div class="alert alert-warning">
+    <strong>Warning!</strong>
+    Not everything described on this page is ready just yet.
+    In the mean time, please visit the <a href="https://gitter.im/u-wave/Lobby">Gitter</a> or the #uwave channel in the <a href="https://slack.welovekpop.club/">WE ♥ KPOP Slack</a> for updates.
+  </div>
+</div>
+
+<div class="container">
   <h1>Installing üWave</h1>
+  <p>
+    This page describes how to install üWave from scratch using the <a href="/cli">üWave CLI</a>.
+    This is aimed at a production environment—for a development installation, check out the <a href="/web">üWave Web Client</a> documentation.
+    If you run into trouble, try visiting the <a href="https://gitter.im/u-wave/Lobby">Gitter</a> chat room!
+  </p>
+</div>
+
+<div class="container">
+  <h2>Dependencies</h2>
+  <p>
+    To run üWave, you need a server with:
+  </p>
+  <ul>
+    <li><a href="https://nodejs.org">Node.js</a></li>
+    <li><a href="https://mongodb.com">MongoDB</a></li>
+    <li><a href="https://redis.io">Redis</a></li>
+  </ul>
+
+  <h3>Ubuntu 16.04</h3>
+  <p>
+    On Ubuntu 16.04, the following commands will install everything we need:
+  </p>
+  <pre><code>
+echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+
+sudo apt-get update
+sudo apt-get install -y build-essential mongodb-org nodejs redis-server
+  </code></pre>
+</div>
+
+<div class="container">
+  <h2>Install</h2>
+
+  <p>
+    We will use the <code>pm2</code> tool to manage the üWave server process and logging, and we will use the üWave CLI to configure the server.
+  </p>
+
+  <p>
+    With <code>npm</code> do:
+  </p>
+
+  <pre><code>
+npm install --global pm2 u-wave-cli
+  </code></pre>
+
+  <p>
+    Next, we will install the <code>logrotate</code> module for <code>pm2</code>, which automatically archives log files by date.
+    That way log files don't grow to many hundreds of MBs.
+  </p>
+
+  <pre><code>
+pm2 install pm2-logrotate
+  </code></pre>
+
+  <p>
+    Now we will start the configuration of the üWave server itself.
+    The CLI will ask some questions about the necessary databases, API keys and administrator account credentials.
+  </p>
+
+  <pre><code>
+u-wave init
+  </code></pre>
 </div>
