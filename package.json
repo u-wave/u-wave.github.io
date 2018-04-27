@@ -4,6 +4,9 @@
   "description": "The üWave documentation website",
   "main": "index.js",
   "scripts": {
+    "build": "next build",
+    "start": "next start",
+    "dev": "next dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

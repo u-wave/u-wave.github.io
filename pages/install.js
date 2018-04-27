@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import compose from 'recompose/compose';
 import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
+import yellow from 'material-ui/colors/yellow';
 import md from 'markdown-in-js';
 import withLayout from '../withLayout';
 
@@ -14,7 +15,33 @@ const enhance = compose(withLayout, withStyles(theme => ({
   },
 })));
 
-const instructions = md`
+const mdStyles = withStyles(theme => ({
+  link: {
+    textDecoration: 'none',
+    color: theme.palette.primary.main,
+    '&:hover': { color: theme.palette.primary.light },
+  },
+  alert: {
+    margin: 0,
+    padding: '12px 16px 12px 24px',
+    background: yellow[200],
+    borderLeft: `3px solid ${yellow[600]}`,
+  },
+}));
+
+const Link = mdStyles(({ classes, ...props }) => (
+  <a className={classes.link} {...props} />
+));
+const Alert = mdStyles(({ classes, children }) => (
+  <blockquote className={classes.alert}>
+    {children}
+  </blockquote>
+));
+
+const instructions = md({
+  a: Link,
+  blockquote: Alert,
+})`
   > **Warning!** Not everything described on this page is ready just yet.
   > In the mean time, please visit the [Gitter](https://gitter.im/u-wave/Lobby) or the #uwave channel in the [WLK Slack](https://slack.wlk.yt) for updates.
 
