@@ -15,7 +15,9 @@ export default class extends Document {
 
     return {
       ...page,
-      styles: sheets.toString(),
+      styles: (
+        <style id="jss" dangerouslySetInnerHTML={{ __html: sheets.toString() }} />
+      ),
     };
   }
 
@@ -26,7 +28,6 @@ export default class extends Document {
       <html>
         <Head>
           <style dangerouslySetInnerHTML={{ __html: 'body { margin: 64px 0 0 0; font-family: "Open Sans", sans-serif; }' }} />
-          <style id="jss" dangerouslySetInnerHTML={{ __html: styles }} />
           <title>üWave</title>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
