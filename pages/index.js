@@ -9,7 +9,7 @@ const enhance = compose(withLayout, withStyles(theme => ({
   hero: {
     ...theme.mixins.gutters(),
     background: theme.palette.primary.main,
-    paddingTop: theme.spacing.unit * 6,
+    paddingTop: theme.spacing.unit * 6 + 56,
     paddingBottom: theme.spacing.unit * 6,
   },
   screenshots: {

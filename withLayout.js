@@ -3,6 +3,7 @@ import { MuiThemeProvider, withStyles } from 'material-ui/styles';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Button from 'material-ui/Button';
+import CssBaseline from 'material-ui/CssBaseline';
 import Link from 'next/link';
 import theme from './muiTheme';
 
@@ -51,6 +52,7 @@ export default function withLayout(Component) {
 
   return (props) => (
     <MuiThemeProvider theme={theme} sheetsManager={map}>
+      <CssBaseline />
       <Header />
       <Component {...props} />
     </MuiThemeProvider>

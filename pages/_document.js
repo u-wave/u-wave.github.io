@@ -3,6 +3,10 @@ import Document, { Head, Main, NextScript } from 'next/document';
 import { JssProvider, SheetsRegistry } from 'react-jss';
 import { createGenerateClassName } from 'material-ui/styles';
 
+const globalStyles = `
+  body { font-family: "Open Sans", sans-serif; }
+`;
+
 export default class extends Document {
   static getInitialProps({ renderPage }) {
     const sheets = new SheetsRegistry();
@@ -27,7 +31,7 @@ export default class extends Document {
     return (
       <html>
         <Head>
-          <style dangerouslySetInnerHTML={{ __html: 'body { margin: 64px 0 0 0; font-family: "Open Sans", sans-serif; }' }} />
+          <style dangerouslySetInnerHTML={{ __html: globalStyles }} />
           <title>üWave</title>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
