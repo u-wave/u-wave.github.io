@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta charSet="utf-8" class="next-head"/><link rel="preload" href="/_next/4a6c0853-5383-44eb-959b-133a99ae81fb/page/install.js" as="script"/><link rel="preload" href="/_next/4a6c0853-5383-44eb-959b-133a99ae81fb/page/_error.js" as="script"/><link rel="preload" href="/_next/4a6c0853-5383-44eb-959b-133a99ae81fb/main.js" as="script"/><style id="jss">.jss11 {
+<!DOCTYPE html><html><head><meta charSet="utf-8" class="next-head"/><link rel="preload" href="/_next/8754e426-de42-4d3f-8ad5-a94cbf130b08/page/install.js" as="script"/><link rel="preload" href="/_next/8754e426-de42-4d3f-8ad5-a94cbf130b08/page/_error.js" as="script"/><link rel="preload" href="/_next/8754e426-de42-4d3f-8ad5-a94cbf130b08/main.js" as="script"/><style id="jss">.jss11 {
   background-color: #303030;
 }
 .jss12 {
@@ -390,6 +390,23 @@
 .jss54 {
   width: 100%;
 }
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+body {
+  margin: 0;
+  background-color: #151515;
+}
+@media print {
+  body {
+    background-color: #fff;
+  }
+}
 .jss1 {
   height: 48px;
   margin-right: 48px;
@@ -434,7 +451,9 @@
   margin: auto;
   padding: 48px;
   max-width: 800px;
-}</style><style>body { margin: 64px 0 0 0; font-family: "Open Sans", sans-serif; }</style><title>üWave</title><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="description" content="üWave is a self-hosted collaborative listening platform."/></head><body><div id="__next"><header class="jss11 jss13 jss3 jss4 jss9 mui-fixed"><div class="jss38 jss39"><a class="jss1" href="/"><img src="/static/images/logo-white.png" class="jss2"/></a><a tabindex="0" class="jss55 jss40" role="button" href="https://hub.u-wave.net"><span class="jss41">Join</span><span class="jss57"></span></a><a tabindex="0" class="jss55 jss40" role="button" href="/install/"><span class="jss41">Install</span><span class="jss57"></span></a></div></header><div class="jss64"><div class="_markdown_"><blockquote class="jss66"><p><strong>Warning!</strong> Not everything described on this page is ready just yet. In the mean time, please visit the <a class="jss67" href="https://gitter.im/u-wave/Lobby">Gitter</a> or the #uwave channel in the <a class="jss67" href="https://slack.wlk.yt">WLK Slack</a> for updates.</p></blockquote><h1>Installing üWave</h1><p>This page describes how to install üWave from scratch using the <a class="jss67" href="/cli">üWave CLI</a>. This is aimed at a production environment—for a development installation, check out the <a class="jss67" href="/web">üWave Web Client</a> documentation. If you run into trouble, try visiting the <a class="jss67" href="https://gitter.im/u-wave/Lobby">Gitter</a> chat room!</p><h2>Dependencies</h2><p>To run üWave, you need a server with:</p><ul><li>Node.js</li><li>MongoDB</li><li>Redis</li></ul><h3>Ubuntu 16.04</h3><p>On Ubuntu 16.04, the following commands will install everything we need:</p><pre><code class="language-bash">echo &amp;quot;deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse&amp;quot; | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+}</style><style>
+  body { font-family: "Open Sans", sans-serif; }
+</style><title>üWave</title><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="description" content="üWave is a self-hosted collaborative listening platform."/></head><body><div id="__next"><header class="jss11 jss13 jss3 jss4 jss9 mui-fixed"><div class="jss38 jss39"><a class="jss1" href="/"><img src="/static/images/logo-white.png" class="jss2"/></a><a tabindex="0" class="jss55 jss40" role="button" href="https://hub.u-wave.net"><span class="jss41">Join</span><span class="jss57"></span></a><a tabindex="0" class="jss55 jss40" role="button" href="/install/"><span class="jss41">Install</span><span class="jss57"></span></a></div></header><div class="jss64"><div class="_markdown_"><blockquote class="jss66"><p><strong>Warning!</strong> Not everything described on this page is ready just yet. In the mean time, please visit the <a class="jss67" href="https://gitter.im/u-wave/Lobby">Gitter</a> or the #uwave channel in the <a class="jss67" href="https://slack.wlk.yt">WLK Slack</a> for updates.</p></blockquote><h1>Installing üWave</h1><p>This page describes how to install üWave from scratch using the <a class="jss67" href="/cli">üWave CLI</a>. This is aimed at a production environment—for a development installation, check out the <a class="jss67" href="/web">üWave Web Client</a> documentation. If you run into trouble, try visiting the <a class="jss67" href="https://gitter.im/u-wave/Lobby">Gitter</a> chat room!</p><h2>Dependencies</h2><p>To run üWave, you need a server with:</p><ul><li>Node.js</li><li>MongoDB</li><li>Redis</li></ul><h3>Ubuntu 16.04</h3><p>On Ubuntu 16.04, the following commands will install everything we need:</p><pre><code class="language-bash">echo &amp;quot;deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse&amp;quot; | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
 curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 
 sudo apt-get update
@@ -443,7 +462,7 @@ sudo apt-get install -y build-essential mongodb-org nodejs redis-server
 </code></pre><p>Next, we will install the <code>logrotate</code> module for <code>pm2</code>, which automatically archives log files by date. That way log files don&#x27;t grow to many hundreds of MBs.</p><pre><code class="language-bash">pm2 install pm2-logrotate
 </code></pre><p>Now we will start the configuration of the üWave server itself. The CLI will ask some questions about the necessary databases, API keys and administrator account credentials.</p><pre><code class="language-bash">u-wave init
 </code></pre></div></div></div><div id="__next-error"></div><script>
-          __NEXT_DATA__ = {"props":{},"page":"/install","pathname":"/install","query":{},"buildId":"4a6c0853-5383-44eb-959b-133a99ae81fb","assetPrefix":"","nextExport":true,"err":null,"chunks":[]}
+          __NEXT_DATA__ = {"props":{},"page":"/install","pathname":"/install","query":{},"buildId":"8754e426-de42-4d3f-8ad5-a94cbf130b08","assetPrefix":"","nextExport":true,"err":null,"chunks":[]}
           module={}
           __NEXT_LOADED_PAGES__ = []
           __NEXT_LOADED_CHUNKS__ = []
@@ -457,4 +476,4 @@ sudo apt-get install -y build-essential mongodb-org nodejs redis-server
           }
 
           false
-        </script><script async="" id="__NEXT_PAGE__/install" src="/_next/4a6c0853-5383-44eb-959b-133a99ae81fb/page/install.js"></script><script async="" id="__NEXT_PAGE__/_error" src="/_next/4a6c0853-5383-44eb-959b-133a99ae81fb/page/_error.js"></script><script src="/_next/4a6c0853-5383-44eb-959b-133a99ae81fb/main.js" async=""></script></body></html>
+        </script><script async="" id="__NEXT_PAGE__/install" src="/_next/8754e426-de42-4d3f-8ad5-a94cbf130b08/page/install.js"></script><script async="" id="__NEXT_PAGE__/_error" src="/_next/8754e426-de42-4d3f-8ad5-a94cbf130b08/page/_error.js"></script><script src="/_next/8754e426-de42-4d3f-8ad5-a94cbf130b08/main.js" async=""></script></body></html>
