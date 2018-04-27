@@ -1,1 +1,3 @@
-_site
+.next
+out
+node_modules

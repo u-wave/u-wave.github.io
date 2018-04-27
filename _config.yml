@@ -1,8 +1,0 @@
-# Site settings
-title: üWave
-tagline: Self-hosted collaborative listening platform
-description: üWave is a self-hosted collaborative listening platform.
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://u-wave.net" # the base hostname & protocol for your site
-# twitter_username: jekyllrb
-github_username: u-wave
