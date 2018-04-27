@@ -10,7 +10,9 @@ deploy:
   provider: pages
   skip-cleanup: true
   github-token: $GITHUB_TOKEN
+  fqdn: http://u-wave.net
   keep-history: true
   local-dir: out
+  target-branch: master
   on:
-    branch: master
+    branch: source
