@@ -7,20 +7,30 @@ import withLayout from '../withLayout';
 
 const enhance = compose(withLayout, withStyles(theme => ({
   hero: {
+    ...theme.mixins.gutters(),
     background: theme.palette.primary.main,
-    padding: 48,
+    paddingTop: theme.spacing.unit * 6,
+    paddingBottom: theme.spacing.unit * 6,
   },
   screenshots: {
     width: '90%',
     margin: 'auto',
-    marginTop: 48,
+    marginTop: theme.spacing.unit * 6,
     display: 'flex',
     justifyContent: 'space-around',
+    alignItems: 'center',
+    '@media (max-width: 767px)': {
+      flexDirection: 'column',
+    },
   },
   screenshot: {
     maxWidth: '80%',
     maxHeight: '60vh',
-    boxShadow: theme.shadows[2],
+    boxShadow: theme.shadows[6],
+    [theme.breakpoints.down('md')]: {
+      maxWidth: '100%',
+      '&:first-child': { marginBottom: theme.spacing.unit * 6 },
+    },
   },
   intro: {
     maxWidth: '80%',
