@@ -2,13 +2,14 @@ import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { JssProvider, SheetsRegistry } from 'react-jss';
 import { createGenerateClassName } from 'material-ui/styles';
+import cssnano from 'cssnano';
 
 const globalStyles = `
   body { font-family: "Open Sans", sans-serif; }
 `;
 
 export default class extends Document {
-  static getInitialProps({ renderPage }) {
+  static async getInitialProps({ renderPage }) {
     const sheets = new SheetsRegistry();
     const generateClassName = createGenerateClassName();
     const page = renderPage(Page => props => (
@@ -17,10 +18,13 @@ export default class extends Document {
       </JssProvider>
     ));
 
+    const css = sheets.toString();
+    const minifiedCss = await cssnano.process(css);
+
     return {
       ...page,
       styles: (
-        <style id="jss" dangerouslySetInnerHTML={{ __html: sheets.toString() }} />
+        <style id="jss" dangerouslySetInnerHTML={{ __html: minifiedCss }} />
       ),
     };
   }

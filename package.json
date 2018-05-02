@@ -22,6 +22,7 @@
   "homepage": "https://github.com/u-wave/u-wave.github.io#readme",
   "dependencies": {
     "@material-ui/icons": "^1.0.0-beta.43",
+    "cssnano": "^3.10.0",
     "markdown-in-js": "^1.1.4",
     "material-ui": "^1.0.0-beta.43",
     "next": "^5.1.0",
