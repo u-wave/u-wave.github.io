@@ -3,6 +3,7 @@ node_js:
   - "stable"
 
 script:
+  - 'cd layout && npm install && cd ..'
   - npm run build
   - npm run export
 
