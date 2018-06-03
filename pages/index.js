@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import compose from 'recompose/compose';
+import Link from 'next/link';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import withLayout from '../withLayout';
+import withLayout from '@u-wave/site-layout';
 
-const enhance = compose(withLayout, withStyles(theme => ({
+const enhance = compose(withLayout({ Link }), withStyles(theme => ({
   hero: {
     ...theme.mixins.gutters(),
     background: theme.palette.primary.main,

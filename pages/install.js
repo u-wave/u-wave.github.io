@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import compose from 'recompose/compose';
+import Link from 'next/link';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import yellow from '@material-ui/core/colors/yellow';
 import md from 'markdown-in-js';
-import withLayout from '../withLayout';
+import withLayout from '@u-wave/site-layout';
 
-const enhance = compose(withLayout, withStyles(theme => ({
+const enhance = compose(withLayout({ Link }), withStyles(theme => ({
   content: {
     maxWidth: 800,
     margin: 'auto',
@@ -29,7 +30,7 @@ const mdStyles = withStyles(theme => ({
   },
 }));
 
-const Link = mdStyles(({ classes, ...props }) => (
+const MdLink = mdStyles(({ classes, ...props }) => (
   <a className={classes.link} {...props} />
 ));
 const Alert = mdStyles(({ classes, children }) => (
@@ -39,7 +40,7 @@ const Alert = mdStyles(({ classes, children }) => (
 ));
 
 const instructions = md({
-  a: Link,
+  a: MdLink,
   blockquote: Alert,
 })`
   > **Warning!** Not everything described on this page is ready just yet.

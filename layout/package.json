@@ -1,0 +1,29 @@
+{
+  "name": "@u-wave/site-layout",
+  "version": "1.0.0",
+  "description": "Layout wrapper for the various parts of the u-wave.net website.",
+  "main": "dist/u-wave-site-layout.js",
+  "module": "dist/u-wave-site-layout.es.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "npm run build",
+    "build": "cross-env NODE_ENV=production rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/u-wave/u-wave.github.io.git"
+  },
+  "author": "Renée Kooi <renee@kooi.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/u-wave/u-wave.github.io/issues"
+  },
+  "homepage": "https://github.com/u-wave/u-wave.github.io#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "cross-env": "^5.1.6",
+    "rollup": "^0.59.4",
+    "rollup-plugin-babel": "^3.0.4"
+  }
+}

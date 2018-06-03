@@ -23,6 +23,7 @@
   "dependencies": {
     "@material-ui/core": "^1.1.0",
     "@material-ui/icons": "^1.1.0",
+    "@u-wave/site-layout": "file:./layout",
     "cssnano": "^3.10.0",
     "markdown-in-js": "^1.1.4",
     "next": "^5.1.0",
