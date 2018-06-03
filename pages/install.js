@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import compose from 'recompose/compose';
-import { withStyles } from 'material-ui/styles';
-import Typography from 'material-ui/Typography';
-import yellow from 'material-ui/colors/yellow';
+import { withStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import yellow from '@material-ui/core/colors/yellow';
 import md from 'markdown-in-js';
 import withLayout from '../withLayout';
 

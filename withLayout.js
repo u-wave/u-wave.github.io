@@ -1,9 +1,9 @@
 import React from 'react';
-import { MuiThemeProvider, withStyles } from 'material-ui/styles';
-import AppBar from 'material-ui/AppBar';
-import Toolbar from 'material-ui/Toolbar';
-import Button from 'material-ui/Button';
-import CssBaseline from 'material-ui/CssBaseline';
+import { MuiThemeProvider, withStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import Link from 'next/link';
 import theme from './muiTheme';
 

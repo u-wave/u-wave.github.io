@@ -1,7 +1,7 @@
 import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { JssProvider, SheetsRegistry } from 'react-jss';
-import { createGenerateClassName } from 'material-ui/styles';
+import { createGenerateClassName } from '@material-ui/core/styles';
 import cssnano from 'cssnano';
 
 const globalStyles = `
