@@ -22,8 +22,8 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
-    "cross-env": "^5.1.6",
-    "rollup": "^0.59.4",
-    "rollup-plugin-babel": "^3.0.4"
+    "cross-env": "^5.2.0",
+    "rollup": "^1.2.3",
+    "rollup-plugin-babel": "^4.3.2"
   }
 }
