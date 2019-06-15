@@ -1,22 +1,22 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import compose from 'recompose/compose';
 import Link from 'next/link';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
 import yellow from '@material-ui/core/colors/yellow';
 import md from 'markdown-in-js';
 import withLayout from '@u-wave/site-layout';
 
-const enhance = compose(withLayout({ Link }), withStyles(theme => ({
+const enhance = withLayout({ Link });
+
+const useRootStyles = makeStyles(theme => ({
   content: {
     maxWidth: 800,
     margin: 'auto',
     padding: 48,
   },
-})));
+}));
 
-const mdStyles = withStyles(theme => ({
+const useMdStyles = makeStyles(theme => ({
   link: {
     textDecoration: 'none',
     color: theme.palette.primary.main,
@@ -30,14 +30,21 @@ const mdStyles = withStyles(theme => ({
   },
 }));
 
-const MdLink = mdStyles(({ classes, ...props }) => (
-  <a className={classes.link} {...props} />
-));
-const Alert = mdStyles(({ classes, children }) => (
-  <blockquote className={classes.alert}>
-    {children}
-  </blockquote>
-));
+function MdLink(props) {
+  const classes = useMdStyles();
+  return (
+    <a className={classes.link} {...props} />
+  );
+}
+
+function Alert({ children }) {
+  const classes = useMdStyles();
+  return (
+    <blockquote className={classes.alert}>
+      {children}
+    </blockquote>
+  );
+}
 
 const instructions = md({
   a: MdLink,
@@ -97,14 +104,12 @@ const instructions = md({
   \`\`\`
 `
 
-const Install = ({ classes }) => (
-  <div className={classes.content}>{instructions}</div>
-);
+function Install() {
+  const classes = useRootStyles();
 
-Install.propTypes = {
-  classes: PropTypes.shape({
-    content: PropTypes.string.isRequired,
-  }).isRequired,
-};
+  return (
+    <div className={classes.content}>{instructions}</div>
+  );
+}
 
 export default enhance(Install);

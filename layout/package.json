@@ -20,10 +20,11 @@
   },
   "homepage": "https://github.com/u-wave/u-wave.github.io#readme",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
     "cross-env": "^5.2.0",
-    "rollup": "^1.2.3",
-    "rollup-plugin-babel": "^4.3.2"
+    "rollup": "^1.15.5",
+    "rollup-plugin-babel": "^4.0.0"
   }
 }

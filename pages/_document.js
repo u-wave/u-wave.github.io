@@ -1,7 +1,6 @@
 import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
-import { JssProvider, SheetsRegistry } from 'react-jss';
-import { createGenerateClassName } from '@material-ui/core/styles';
+import { createGenerateClassName, ServerStyleSheets, StylesProvider } from '@material-ui/styles';
 import cssnano from 'cssnano';
 
 const globalStyles = `
@@ -10,12 +9,12 @@ const globalStyles = `
 
 export default class extends Document {
   static async getInitialProps({ renderPage }) {
-    const sheets = new SheetsRegistry();
+    const sheets = new ServerStyleSheets();
     const generateClassName = createGenerateClassName();
-    const page = renderPage(Page => props => (
-      <JssProvider registry={sheets} generateClassName={generateClassName}>
+    const page = renderPage(Page => props => sheets.collect(
+      <StylesProvider generateClassName={generateClassName}>
         <Page {...props} />
-      </JssProvider>
+      </StylesProvider>
     ));
 
     const css = sheets.toString();
