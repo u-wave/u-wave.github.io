@@ -35,7 +35,7 @@ export default class extends Document {
       <html>
         <Head>
           <style dangerouslySetInnerHTML={{ __html: globalStyles }} />
-          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+          <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="description" content="üWave is a self-hosted collaborative listening platform." />
         </Head>
