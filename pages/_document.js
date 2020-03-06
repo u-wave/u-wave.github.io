@@ -18,7 +18,7 @@ export default class extends Document {
     ));
 
     const css = sheets.toString();
-    const minifiedCss = await cssnano.process(css);
+    const minifiedCss = await cssnano.process(css, { from: undefined });
 
     return {
       ...page,
