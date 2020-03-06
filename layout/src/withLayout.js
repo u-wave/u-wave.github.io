@@ -37,12 +37,12 @@ export default function createLayoutHOC({ Link }) {
             </a>
           </Link>
           <Link href="https://hub.u-wave.net/" passHref>
-            <Button variant="flat">
+            <Button variant="text">
               Join
             </Button>
           </Link>
           <Link href="/install" passHref>
-            <Button variant="flat">
+            <Button variant="text">
               Install
             </Button>
           </Link>

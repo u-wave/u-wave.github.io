@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Head from 'next/head';
 import { makeStyles } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
 import withLayout from '@u-wave/site-layout';
@@ -44,8 +45,11 @@ function Index() {
 
   return (
     <div>
+      <Head>
+        <title>üWave</title>
+      </Head>
       <div className={classes.hero}>
-        <Typography className={classes.intro} variant="subheading">
+        <Typography className={classes.intro} variant="subtitle1">
           üWave is a self-hosted collaborative listening platform. Users take
           turns playing media—songs, talks, gameplay videos, or anything else—from
           a variety of media sources like YouTube and SoundCloud.

@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Head from 'next/head';
 import { makeStyles } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
 import yellow from '@material-ui/core/colors/yellow';
@@ -108,7 +109,12 @@ function Install() {
   const classes = useRootStyles();
 
   return (
-    <div className={classes.content}>{instructions}</div>
+    <>
+      <Head>
+        <title>üWave · Install</title>
+      </Head>
+      <div className={classes.content}>{instructions}</div>
+    </>
   );
 }
 
