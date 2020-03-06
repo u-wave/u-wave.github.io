@@ -33,14 +33,12 @@ export default function createLayoutHOC({ Link }) {
         <Toolbar>
           <Link href="/">
             <a className={classes.logo}>
-              <img src="/static/images/logo-white.png" className={classes.logoImg} />
+              <img src="/images/logo-white.png" className={classes.logoImg} />
             </a>
           </Link>
-          <Link href="https://hub.u-wave.net/" passHref>
-            <Button variant="text">
-              Join
-            </Button>
-          </Link>
+          <Button href="https://hub.u-wave.net/" variant="text">
+            Join
+          </Button>
           <Link href="/install" passHref>
             <Button variant="text">
               Install

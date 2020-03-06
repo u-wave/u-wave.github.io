@@ -56,12 +56,12 @@ function Index() {
         </Typography>
         <div className={classes.screenshots}>
           <img
-            src="/static/images/u-wave-web-mobile.png"
+            src="/images/u-wave-web-mobile.png"
             alt="Screenshot of the mobile version of the üWave Web Client"
             className={classes.screenshot}
           />
           <img
-            src="/static/images/u-wave-web.png"
+            src="/images/u-wave-web.png"
             alt="Screenshot of the desktop version of the üWave Web Client"
             className={classes.screenshot}
           />
