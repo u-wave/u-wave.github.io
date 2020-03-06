@@ -9,13 +9,13 @@ const useStyles = makeStyles(theme => ({
   hero: {
     ...theme.mixins.gutters(),
     background: theme.palette.primary.main,
-    paddingTop: theme.spacing.unit * 6 + 56,
-    paddingBottom: theme.spacing.unit * 6,
+    paddingTop: theme.spacing(6) + 56,
+    paddingBottom: theme.spacing(6),
   },
   screenshots: {
     width: '90%',
     margin: 'auto',
-    marginTop: theme.spacing.unit * 6,
+    marginTop: theme.spacing(6),
     display: 'flex',
     justifyContent: 'space-around',
     alignItems: 'center',
@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
     boxShadow: theme.shadows[6],
     [theme.breakpoints.down('md')]: {
       maxWidth: '100%',
-      '&:first-child': { marginBottom: theme.spacing.unit * 6 },
+      '&:first-child': { marginBottom: theme.spacing(6) },
     },
   },
   intro: {
