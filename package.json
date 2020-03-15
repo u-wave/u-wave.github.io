@@ -21,13 +21,13 @@
   },
   "homepage": "https://github.com/u-wave/u-wave.github.io#readme",
   "dependencies": {
-    "@material-ui/core": "^4.0.0",
-    "@material-ui/styles": "^4.1.1",
-    "@u-wave/site-layout": "file:./layout",
+    "@material-ui/core": "^4.9.5",
+    "@material-ui/styles": "^4.9.0",
+    "@u-wave/site-layout": "file:layout",
     "cssnano": "^4.1.10",
     "markdown-in-js": "^1.1.4",
-    "next": "^9.2.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "next": "^9.3.0",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0"
   }
 }
