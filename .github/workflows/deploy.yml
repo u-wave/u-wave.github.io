@@ -1,0 +1,29 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - source
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Install
+        run: npm install
+      - name: Build Next.js site
+        run: npm run export
+      - name: Publish site
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v1
+        with:
+          target_branch: master
+          build_dir: out
+          fqdn: https://u-wave.net
+          keep_history: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
