@@ -3,6 +3,5 @@ module.exports = (api) => {
 
   return {
     presets: ['module:next/babel'],
-    plugins: ['module:markdown-in-js/babel'],
   };
 };
