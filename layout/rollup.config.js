@@ -13,7 +13,7 @@ export default {
   },
   plugins: [
     babel({
-      runtimeHelpers: 'bundled',
+      babelHelpers: 'bundled',
     }),
   ],
 };
