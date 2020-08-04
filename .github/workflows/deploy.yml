@@ -13,11 +13,6 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-      - name: Build dependency
-        run: |
-          cd layout
-          npm install
-          npm run build
       - name: Install
         run: npm install
       - name: Build Next.js site
