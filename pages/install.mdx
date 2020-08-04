@@ -1,0 +1,57 @@
+# Installing üWave
+
+> **Warning!** Not everything described on this page is ready just yet.
+> In the mean time, please visit the [Gitter](https://gitter.im/u-wave/Lobby) or the #uwave channel in the [WLK Slack](https://slack.wlk.yt) for updates.
+
+This page describes how to install üWave from scratch using the [üWave CLI](/cli).
+This is aimed at a production environment—for a development installation, check out the [üWave Web Client](/web) documentation.
+If you run into trouble, try visiting the [Gitter](https://gitter.im/u-wave/Lobby) chat room!
+
+## Dependencies
+
+To run üWave, you need a server with:
+
+* Node.js
+* MongoDB - [Install instructions](https://docs.mongodb.com/manual/administration/install-community/)
+* Redis
+
+### Ubuntu 20.04
+
+On Ubuntu 20.04, the following commands will install everything we need:
+
+```bash
+echo "deb http://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" \
+  | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+
+sudo apt-get update
+sudo apt-get install -y build-essential mongodb-org nodejs redis-server
+```
+
+## Install
+
+> **TODO** This should be rewritten to use systemd instead.
+
+We will use the `pm2` tool to manage the üWave server process and logging, and we will use the üWave CLI to configure the server.
+
+With `npm` do:
+
+```bash
+npm install --global pm2 u-wave-cli
+```
+
+Next, we will install the `logrotate` module for `pm2`, which automatically archives log files by date.
+That way log files don't grow to many hundreds of MBs.
+
+```bash
+pm2 install pm2-logrotate
+```
+
+> **TODO** This should be written when the new server and web client alphas are released.
+
+Now we will start the configuration of the üWave server itself.
+The CLI will ask some questions about the necessary databases, API keys and administrator account credentials.
+
+```bash
+u-wave init
+```

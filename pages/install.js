@@ -1,19 +1,23 @@
 import React from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
+import { MDXProvider } from '@mdx-js/react';
 import { makeStyles } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
 import yellow from '@material-ui/core/colors/yellow';
-import md from 'markdown-in-js';
 import withLayout from '@u-wave/site-layout';
+import Instructions from './install.mdx';
 
 const enhance = withLayout({ Link });
 
 const useRootStyles = makeStyles(theme => ({
   content: {
-    maxWidth: 800,
+    ...theme.mixins.gutters(),
+    maxWidth: 1024,
     margin: 'auto',
-    padding: 48,
+    paddingBottom: theme.spacing(6),
+    paddingTop: theme.spacing(6) + 56,
+    color: '#000',
   },
 }));
 
@@ -47,63 +51,16 @@ function Alert({ children }) {
   );
 }
 
-const instructions = md({
+const components = {
   a: MdLink,
   blockquote: Alert,
-})`
-  > **Warning!** Not everything described on this page is ready just yet.
-  > In the mean time, please visit the [Gitter](https://gitter.im/u-wave/Lobby) or the #uwave channel in the [WLK Slack](https://slack.wlk.yt) for updates.
-
-  # Installing üWave
-
-  This page describes how to install üWave from scratch using the [üWave CLI](/cli).
-  This is aimed at a production environment—for a development installation, check out the [üWave Web Client](/web) documentation.
-  If you run into trouble, try visiting the [Gitter](https://gitter.im/u-wave/Lobby) chat room!
-
-  ## Dependencies
-
-  To run üWave, you need a server with:
-
-  * Node.js
-  * MongoDB
-  * Redis
-
-  ### Ubuntu 16.04
-
-  On Ubuntu 16.04, the following commands will install everything we need:
-
-  \`\`\`bash
-  echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
-  curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-
-  sudo apt-get update
-  sudo apt-get install -y build-essential mongodb-org nodejs redis-server
-  \`\`\`
-
-  ## Install
-
-  We will use the \`pm2\` tool to manage the üWave server process and logging, and we will use the üWave CLI to configure the server.
-
-  With \`npm\` do:
-
-  \`\`\`bash
-  npm install --global pm2 u-wave-cli
-  \`\`\`
-
-  Next, we will install the \`logrotate\` module for \`pm2\`, which automatically archives log files by date.
-  That way log files don't grow to many hundreds of MBs.
-
-  \`\`\`bash
-  pm2 install pm2-logrotate
-  \`\`\`
-
-  Now we will start the configuration of the üWave server itself.
-  The CLI will ask some questions about the necessary databases, API keys and administrator account credentials.
-
-  \`\`\`bash
-  u-wave init
-  \`\`\`
-`
+  p: (props) => <Typography variant="body1" {...props} />,
+  h1: (props) => <Typography variant="h1" {...props} />,
+  h2: (props) => <Typography variant="h2" {...props} />,
+  h3: (props) => <Typography variant="h3" {...props} />,
+  h4: (props) => <Typography variant="h4" {...props} />,
+  h5: (props) => <Typography variant="h5" {...props} />,
+};
 
 function Install() {
   const classes = useRootStyles();
@@ -113,7 +70,11 @@ function Install() {
       <Head>
         <title>üWave · Install</title>
       </Head>
-      <div className={classes.content}>{instructions}</div>
+      <MDXProvider components={components}>
+        <div className={classes.content}>
+          <Instructions />
+        </div>
+      </MDXProvider>
     </>
   );
 }
