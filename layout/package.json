@@ -8,27 +8,17 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.9.5",
-    "@material-ui/styles": "^4.9.0",
-    "react": "^16.13.0"
+    "@material-ui/styles": "^4.9.0"
   },
-  "devDependencies": {
-    "@babel/core": "^7.11.0",
-    "@babel/preset-env": "^7.11.0",
-    "@babel/preset-react": "^7.10.4",
-    "@rollup/plugin-babel": "^5.1.0",
-    "rollup": "^2.0.0"
+  "peerDependencies": {
+    "react": "^16.13.0"
   },
   "homepage": "https://github.com/u-wave/u-wave.github.io#readme",
   "license": "MIT",
-  "main": "dist/u-wave-site-layout.js",
-  "module": "dist/u-wave-site-layout.es.js",
+  "module": "dist/u-wave-site-layout.mjs",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/u-wave/u-wave.github.io.git"
-  },
-  "scripts": {
-    "build": "rollup -c",
-    "prepare": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "url": "git+https://github.com/u-wave/u-wave.github.io.git",
+    "directory": "layout"
   }
 }

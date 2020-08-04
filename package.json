@@ -4,7 +4,7 @@
   "description": "The üWave documentation website",
   "main": "index.js",
   "scripts": {
-    "build": "next build",
+    "build": "rollup -c layout/rollup.config.js && next build",
     "start": "next start",
     "dev": "next dev",
     "export": "next export",
@@ -31,5 +31,9 @@
     "next": "^9.5.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@rollup/plugin-babel": "^5.1.0",
+    "rollup": "^2.23.0"
   }
 }

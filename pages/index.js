@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Head from 'next/head';
 import { makeStyles } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
-import withLayout from '@u-wave/site-layout';
+import withLayout from '../layout/src/withLayout';
 
 const useStyles = makeStyles(theme => ({
   hero: {

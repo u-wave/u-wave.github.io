@@ -5,7 +5,7 @@ import { MDXProvider } from '@mdx-js/react';
 import { makeStyles } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
 import yellow from '@material-ui/core/colors/yellow';
-import withLayout from '@u-wave/site-layout';
+import withLayout from '../layout/src/withLayout';
 import Instructions from './install.mdx';
 
 const enhance = withLayout({ Link });
