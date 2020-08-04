@@ -15,6 +15,11 @@ jobs:
           node-version: '12.x'
       - name: Install
         run: npm install
+      - name: Build dependency
+        run: |
+          cd layout
+          npm install
+          npm run build
       - name: Build Next.js site
         run: npm run build && npm run export
       - name: Publish site
