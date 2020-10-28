@@ -26,7 +26,7 @@
     "@material-ui/styles": "^4.10.0",
     "@mdx-js/loader": "^1.6.16",
     "@mdx-js/react": "^1.6.16",
-    "@next/mdx": "^9.5.1",
+    "@next/mdx": "^10.0.0",
     "@u-wave/site-layout": "file:layout",
     "cssnano": "^4.1.10",
     "next": "^9.5.1",
