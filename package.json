@@ -29,7 +29,7 @@
     "@next/mdx": "^9.5.1",
     "@u-wave/site-layout": "file:layout",
     "cssnano": "^4.1.10",
-    "next": "^9.5.1",
+    "next": "^10.0.3",
     "prismjs": "^1.20.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
