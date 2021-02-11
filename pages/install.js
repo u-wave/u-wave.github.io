@@ -4,20 +4,25 @@ import Head from 'next/head';
 import { MDXProvider } from '@mdx-js/react';
 import { makeStyles } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
-import yellow from '@material-ui/core/colors/yellow';
-import withLayout from '../layout/src/withLayout';
+import { yellow } from '@material-ui/core/colors';
+import { createLayout } from '../layout/src';
 import Instructions from './install.mdx';
 
-const enhance = withLayout({ Link });
+const enhance = createLayout({ Link });
 
 const useRootStyles = makeStyles(theme => ({
   content: {
-    ...theme.mixins.gutters(),
     maxWidth: 1024,
     margin: 'auto',
+    color: '#000',
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(2),
     paddingBottom: theme.spacing(6),
     paddingTop: theme.spacing(6) + 56,
-    color: '#000',
+    [theme.breakpoints.up('sm')]: {
+      paddingLeft: theme.spacing(3),
+      paddingRight: theme.spacing(3),
+    },
   },
 }));
 

@@ -3,14 +3,19 @@ import Link from 'next/link';
 import Head from 'next/head';
 import { makeStyles } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
-import withLayout from '../layout/src/withLayout';
+import { createLayout } from '../layout/src';
 
 const useStyles = makeStyles(theme => ({
   hero: {
-    ...theme.mixins.gutters(),
     background: theme.palette.primary.main,
-    paddingTop: theme.spacing(6) + 56,
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(2),
     paddingBottom: theme.spacing(6),
+    paddingTop: theme.spacing(6) + 56,
+    [theme.breakpoints.up('sm')]: {
+      paddingLeft: theme.spacing(3),
+      paddingRight: theme.spacing(3),
+    },
   },
   screenshots: {
     width: '90%',
@@ -38,7 +43,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const enhance = withLayout({ Link });
+const enhance = createLayout({ Link });
 
 function Index() {
   const classes = useStyles();

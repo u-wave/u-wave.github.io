@@ -8,7 +8,7 @@ function rel(p) {
 const pkg = require('./package.json');
 
 export default {
-  input: rel('./src/withLayout.js'),
+  input: rel('./src/index.js'),
   output: {
     file: rel(pkg.module),
     format: 'es',
