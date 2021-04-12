@@ -30,7 +30,7 @@
     "@mdx-js/react": "^1.6.22",
     "@next/mdx": "^10.0.6",
     "@u-wave/site-layout": "link:layout",
-    "cssnano": "^4.1.10",
+    "cssnano": "^5.0.0",
     "next": "^10.0.6",
     "prismjs": "^1.23.0",
     "react": "^17.0.1",
