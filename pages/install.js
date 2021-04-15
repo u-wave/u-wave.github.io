@@ -5,7 +5,7 @@ import { MDXProvider } from '@mdx-js/react';
 import { makeStyles } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
 import { yellow } from '@material-ui/core/colors';
-import { createLayout } from '../layout/src';
+import { createLayout } from '../layout';
 import Instructions from './install.mdx';
 
 const enhance = createLayout({ Link });
