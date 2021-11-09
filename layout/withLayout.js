@@ -1,9 +1,9 @@
 import React from 'react';
-import { ThemeProvider, makeStyles } from '@material-ui/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import { ThemeProvider, makeStyles } from '@mui/styles';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
 import theme from './muiTheme';
 
 const LOGO_HEIGHT = 114

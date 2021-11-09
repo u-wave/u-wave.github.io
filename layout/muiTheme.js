@@ -1,6 +1,6 @@
-import { createMuiTheme } from '@material-ui/core/styles'
+import { adaptV4Theme, createTheme } from '@mui/material/styles'
 
-export default createMuiTheme({
+export default createTheme(adaptV4Theme({
   palette: {
     type: 'dark',
     primary: {
@@ -14,6 +14,6 @@ export default createMuiTheme({
     }
   },
   typography: {
-    fontFamily: '"Open Sans", Roboto, Arial, sans-serif'
+    fontFamily: 'Open Sans, Roboto, Arial, sans-serif'
   }
-})
+}))
