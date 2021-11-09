@@ -4,7 +4,7 @@
 ## Dependencies
 To run üWave, you need a server with:
 
-* Node.js 12.x or up. The latest LTS release, 14.x, is ideal.
+* Node.js 12.x or up. The latest LTS release, 16.x, is ideal.
 * MongoDB 4.2.x or up - [Install instructions](https://docs.mongodb.com/manual/administration/install-community/)
 * Redis
 
@@ -12,9 +12,9 @@ To run üWave, you need a server with:
 On Ubuntu 20.04, the following commands will install the dependencies we need:
 
 ```bash
-echo "deb http://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" \
-  | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
-curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+echo "deb http://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" \
+  | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
+curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 
 sudo apt-get update
 sudo apt-get install -y build-essential mongodb-org nodejs redis-server
@@ -38,7 +38,34 @@ After=network.target
 [Service]
 User=u-wave
 Group=u-wave
-ExecStart=
+ExecStart=/home/u-wave/.npm/prefix/bin/u-wave-core
+WorkingDirectory=/home/u-wave/
+Environment=PORT=6042
+Environment=MONGODB_URL=mongodb://127.0.0.1:27017/uwave
+Environment=REDIS_URL=redis://127.0.0.1:6379
+# Your YouTube API key
+Environment=YOUTUBE_API_KEY=...
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```ini
+[Unit]
+Description=üWave Web Client
+After=network.target
+
+[Service]
+User=u-wave
+Group=u-wave
+ExecStart=/home/u-wave/.npm/prefix/bin/u-wave-web
+WorkingDirectory=/home/u-wave/
+Environment=PORT=6041
+Environment=CLIENT_TITLE="üWave"
+# URL to access the HTTP API. Must NOT have a trailing slash (/).
+Environment=API_URL=https://your-instance.app/api
+# URL to access the WebSocket API. Usually the same as above, but https → wss.
+Environment=SOCKET_URL=wss://your-instance.app/api/
 
 [Install]
 WantedBy=multi-user.target

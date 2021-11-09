@@ -1,8 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
-import { makeStyles } from '@material-ui/styles';
-import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@mui/styles';
+import Typography from '@mui/material/Typography';
 import { createLayout } from '../layout';
 
 const useStyles = makeStyles(theme => ({
@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(2),
     paddingBottom: theme.spacing(6),
-    paddingTop: theme.spacing(6) + 56,
+    paddingTop: (Number(theme.spacing(6)) + 56) + 'px',
     [theme.breakpoints.up('sm')]: {
       paddingLeft: theme.spacing(3),
       paddingRight: theme.spacing(3),

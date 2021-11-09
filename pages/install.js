@@ -2,9 +2,9 @@ import React from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
 import { MDXProvider } from '@mdx-js/react';
-import { makeStyles } from '@material-ui/styles';
-import Typography from '@material-ui/core/Typography';
-import { yellow } from '@material-ui/core/colors';
+import { makeStyles } from '@mui/styles';
+import Typography from '@mui/material/Typography';
+import { yellow } from '@mui/material/colors';
 import { createLayout } from '../layout';
 import Instructions from './install.mdx';
 
